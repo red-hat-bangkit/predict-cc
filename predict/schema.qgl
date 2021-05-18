@@ -1,0 +1,35 @@
+type BencanaOnCapital {
+  id: ID!
+  name: String!
+  capital: Capital!
+  predictions: [Prediction]
+}
+
+type BencanaOnLocation {
+  id: ID!
+  name: String!
+  location: Location!
+  prediction = Prediction
+}
+
+type Capital {
+  id: ID!
+  name: String!
+  locations:  [Location]
+}
+
+type Location {
+  id: ID!
+  capital: Capital!
+  lat_long: String!
+  name: String!
+}
+
+type Prediction {
+  id: ID!
+  bencana: Bencana!
+  location: Location!
+  confidence: Float!
+  time: DateTime!
+  reason: String
+}
