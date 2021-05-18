@@ -24,4 +24,4 @@ A backend repository for PREDICT application
     ```
 
 ## Contribute to this repository
-* See contributing.md
+* See [contributing.md](contributing.md)
