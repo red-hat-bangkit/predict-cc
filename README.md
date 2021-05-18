@@ -22,3 +22,6 @@ A backend repository for PREDICT application
 
     alembic upgrade head
     ```
+
+## Contribute to this repository
+* See contributing.md
