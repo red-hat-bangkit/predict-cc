@@ -3,12 +3,12 @@ import graphene
 from .serializers import BencanaType
 from datetime import datetime
 
-class Capital(graphene.ObjectType):
+class City(graphene.ObjectType):
     name = graphene.String()
 
 class Location(graphene.ObjectType):
     name = graphene.String()
-    capital = graphene.Field(Capital)
+    city = graphene.Field(City)
     lat_long = graphene.String()
 
     def resolve_lat_long(self, info):
@@ -22,9 +22,9 @@ class Prediction(graphene.ObjectType):
     time = graphene.DateTime()
     reason = graphene.String()
 
-class BencanaInCapital(graphene.ObjectType):
+class BencanaInCity(graphene.ObjectType):
     name = graphene.String()
-    capital = graphene.Field(Capital)
+    city = graphene.Field(City)
     predictions = graphene.List(Prediction)
 
     def resolve_predictions(self, info):
@@ -34,7 +34,7 @@ class BencanaInCapital(graphene.ObjectType):
         predictions = []
         for confidence, location_name, time_stamp, reason in ml_output:
             print(confidence)
-            location = Location(name=location_name, capital=self.capital)
+            location = Location(name=location_name, city=self.city)
             predictions.append(
                 Prediction(
                     bencana=self.name, 
@@ -65,11 +65,11 @@ class Query(graphene.AbstractType):
     def resolve_hello_world(self, info):
         return "Hello World from FastAPI"
 
-    bencana_in_capital = graphene.Field(BencanaInCapital,
-                capital=graphene.String(required=True),
+    bencana_in_city = graphene.Field(BencanaInCity,
+                city=graphene.String(required=True),
                 name=graphene.String(required=True))
-    def resolve_bencana_in_capital(self, info, name, capital):
-        return BencanaInCapital(name=name, capital=Capital(name=capital))
+    def resolve_bencana_in_city(self, info, name, city):
+        return BencanaInCity(name=name, city=City(name=city))
     
     bencana_in_location = graphene.Field(BencanaInLocation,
                 location_name=graphene.String(required=True),
@@ -81,12 +81,12 @@ class Query(graphene.AbstractType):
 class GetBencana(graphene.Mutation):
     class Arguments:
         name = graphene.String(required=True)
-        capital = graphene.String()
+        city = graphene.String()
     
     bencana = graphene.String()
     @staticmethod
-    def mutate(root, info, name, capital):
-        return GetBencana(bencana=f"{name}, {capital}") 
+    def mutate(root, info, name, city):
+        return GetBencana(bencana=f"{name}, {city}") 
 
 
 class PredictMutations(graphene.AbstractType):

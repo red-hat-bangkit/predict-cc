@@ -1,18 +1,18 @@
-type BencanaOnCapital {
+type BencanaInCity {
   id: ID!
   name: String!
-  capital: Capital!
+  city: City!
   predictions: [Prediction]
 }
 
-type BencanaOnLocation {
+type BencanaInLocation {
   id: ID!
   name: String!
   location: Location!
   prediction = Prediction
 }
 
-type Capital {
+type City {
   id: ID!
   name: String!
   locations:  [Location]
@@ -20,7 +20,7 @@ type Capital {
 
 type Location {
   id: ID!
-  capital: Capital!
+  city: City!
   lat_long: String!
   name: String!
 }
