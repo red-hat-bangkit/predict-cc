@@ -32,7 +32,6 @@ class BencanaInCity(graphene.ObjectType):
             (0.75, "Ciamis", datetime.now(), "Luapan Sungai")]
         predictions = []
         for confidence, location_name, time_stamp, reason in ml_output:
-            print(confidence)
             location = Location(name=location_name, city=self.city)
             predictions.append(
                 Prediction(
