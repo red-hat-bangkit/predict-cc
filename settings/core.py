@@ -1,12 +1,17 @@
 import argparse
+import subprocess
 from utils import schema_generator
 
 parser = argparse.ArgumentParser()
 
 # UTILITY PARSER
+## Schema generator
 sub_parser = parser.add_subparsers(title="Options")
 parser_utils = sub_parser.add_parser("generate-schema", help="generate gql schema (SDL & introspections)")
 parser_utils.set_defaults(func=schema_generator.generate)
+## test
+parser_test = sub_parser.add_parser("test", help="test this project")
+parser_test.set_defaults(func=lambda x: subprocess.run(["python", "-m", "unittest", "discover"]))
 
 
 

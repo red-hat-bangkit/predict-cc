@@ -8,8 +8,9 @@ from graphql.execution.executors.asyncio import AsyncioExecutor
 from schemas import Query, Mutations
 
 app = FastAPI()
+app.add_route("/gql", GraphQLApp(schema=graphene.Schema(query=Query, mutation=Mutations), executor_class=AsyncioExecutor, graphiql=True))
+
 def run(args):
-    app.add_route("/gql", GraphQLApp(schema=graphene.Schema(query=Query, mutation=Mutations), executor_class=AsyncioExecutor, graphiql=True))
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True, headers=[("server", "bangkitws")])
 
 if __name__ == "__main__":

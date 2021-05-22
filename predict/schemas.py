@@ -1,6 +1,5 @@
 import graphene
 
-from .serializers import BencanaType
 from datetime import datetime
 
 class City(graphene.ObjectType):
