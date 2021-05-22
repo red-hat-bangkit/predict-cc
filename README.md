@@ -14,12 +14,21 @@ A backend repository for PREDICT application
     ```
     pip install -r requirements.txt
     ```
-
 * Run application
     ```
     python main.py
     ```
     _go to http://localhost:8000/gql_
+
+* Test application
+    ```
+    python main.py test
+    ```
+
+* Generate GQL Schema
+    ```
+    python main.py generate-schema
+    ```
 
 * Alembic migration (in future)
     ```
