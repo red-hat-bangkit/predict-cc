@@ -1,0 +1,50 @@
+schema {
+  query: Query
+  mutation: Mutations
+}
+
+type BencanaInCity {
+  name: String
+  city: City
+  predictions: [Prediction]
+}
+
+type BencanaInLocation {
+  name: String
+  location: Location
+  prediction: Prediction
+}
+
+type City {
+  name: String
+}
+
+scalar DateTime
+
+type GetBencana {
+  bencana: String
+}
+
+type Location {
+  name: String
+  city: City
+  latLong: String
+}
+
+type Mutations {
+  getBencana(city: String, name: String!): GetBencana
+}
+
+type Prediction {
+  bencana: String
+  location: Location
+  confidence: Float
+  time: DateTime
+  reason: String
+}
+
+type Query {
+  helloWorld: String
+  bencanaInCity(city: String!, name: String!): BencanaInCity
+  bencanaInLocation(locationName: String!, name: String!): BencanaInLocation
+}
