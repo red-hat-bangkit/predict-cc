@@ -1,4 +1,4 @@
-from schemas import Query, Mutations
+from predict.gql.schemas import Query, Mutations
 import graphene
 import json
 import colorama

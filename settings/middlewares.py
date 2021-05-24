@@ -9,3 +9,4 @@ class DBSessionMiddleware(BaseHTTPMiddleware):
         finally:
             request.state.db.remove()
         return response
+

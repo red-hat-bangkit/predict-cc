@@ -5,7 +5,7 @@ from settings.settings import os
 from graphene.test import Client
 from graphene import Schema
 
-from schemas import Query, Mutations
+from predict.gql.schemas import Query, Mutations
 
 
 class TestCase(TestCase):

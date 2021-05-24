@@ -47,12 +47,6 @@ snapshots['TestGQLPredict::test_query_bencana_in_location 1'] = {
     }
 }
 
-snapshots['TestGQLPredict::test_query_helloWorld 1'] = {
-    'data': {
-        'helloWorld': 'Hello World from FastAPI'
-    }
-}
-
 snapshots['TestGQLPredict::test_query_hello_world 1'] = {
     'data': {
         'helloWorld': 'Hello World from FastAPI'

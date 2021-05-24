@@ -1,14 +1,15 @@
 import uvicorn
-from fastapi import FastAPI
 
-import graphene
-from starlette.graphql import GraphQLApp
-from graphql.execution.executors.asyncio import AsyncioExecutor
-
-from schemas import Query, Mutations
-
-app = FastAPI()
-app.add_route("/gql", GraphQLApp(schema=graphene.Schema(query=Query, mutation=Mutations), executor_class=AsyncioExecutor, graphiql=True))
+# ---------------
+# Single app init
+# ---------------
+from predict.main import app
+# ----------------
+# Multi app init
+# ----------------
+# from fastapi import FastAPI
+# app = FastAPI()
+# app.mount("predict", predict_app)
 
 def run(args):
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True, headers=[("server", "bangkitws")])

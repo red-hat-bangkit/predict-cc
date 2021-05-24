@@ -58,7 +58,7 @@ class BencanaInLocation(graphene.ObjectType):
                         reason=ml_output[3])
         return prediction
 
-class Query(graphene.AbstractType):
+class Query(graphene.ObjectType):
     hello_world = graphene.String()
     def resolve_hello_world(self, info):
         return "Hello World from FastAPI"
@@ -87,5 +87,5 @@ class GetBencana(graphene.Mutation):
         return GetBencana(bencana=f"{name}, {city}") 
 
 
-class PredictMutations(graphene.AbstractType):
+class Mutations(graphene.ObjectType):
     get_bencana = GetBencana.Field()
