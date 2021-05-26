@@ -60,7 +60,18 @@ A backend repository for PREDICT application
     ```
     heroku stack:set container
     ```
+* Decrypt secrets
+    ```
+    LARGE_SECRET_PASSPHRASE=*****
+
+    gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
+    --output $HOME/secrets/my_secret.json my_secret.json.gpg
+    ```
 * Deploy to heroku
     ```
+    git add . && git commit -m ":rocket: Deploy to heroku"
     git push -f heroku master
     ```
+
+## Encryption
+[secret](https://docs.github.com/en/actions/reference/encrypted-secrets)

@@ -3,5 +3,5 @@ __pycache__
 sqlite.db
 .vscode
 .pytest_cache
-firebase-service-account.json
 .env
+deploy.sh
