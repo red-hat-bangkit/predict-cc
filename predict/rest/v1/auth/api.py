@@ -9,8 +9,8 @@ from firebase_admin.exceptions import FirebaseError
 
 from settings.settings import os
 
-from .exceptions import APIException, ErrorTypes, HTTP_OF_GRPC
-from .models import error_responses
+from predict.exceptions import APIException, ErrorTypes, HTTP_OF_GRPC
+from predict.models import error_responses
 
 cred = credentials.Certificate(os.environ.get("GOOGLE_APPLICATION_CREDENTIALS", ""))
 firebase_app = firebase_admin.initialize_app(cred)
@@ -31,7 +31,7 @@ def create_user(email: str, password: str):
     user = auth.create_user(email=email, password=password)
     return user
 
-from .authentication import firebase_auth
+from predict.authentication import firebase_auth
 @router.get("/users:get", responses={**error_responses})
 def get_user(request: Request, user = Depends(firebase_auth)):
     # user = auth.get_user_by_email(email=email)
