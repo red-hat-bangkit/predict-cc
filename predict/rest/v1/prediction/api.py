@@ -18,7 +18,7 @@ def get_lat_long(location: str):
     }
     return loc_to_latlong.get(location, None)
 
-@router.post("/predictions:bencanaInCity", response_model=List[Prediction])
+@router.get("/predictions:bencanaInCity", response_model=List[Prediction])
 async def list_predictions(bencana_name: str, city_name: str):
 
     ml_output = [
