@@ -33,6 +33,7 @@ jobs:
         - name: Decrypt Secret files
           run: |
             sudo apt-get install -yqq p7zip-full
+            sudo chmod +x decrypt-file.sh
             ./decrypt-file.sh
 
         - name: Build Docker image
