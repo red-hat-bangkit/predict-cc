@@ -1,5 +1,4 @@
 #!/bin/sh
-LARGE_SECRET_PASSPHRASE=<ASK THE AUTHOR FOR PASSPHRASE>
 
 # firebase
 gpg --output secret.gpg --batch --pinentry-mode=loopback --passphrase="$LARGE_SECRET_PASSPHRASE" --symmetric --cipher-algo AES256 firebase-service-account.json

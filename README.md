@@ -70,3 +70,6 @@ A backend repository for PREDICT application
     ```
     ./deploy.sh
     ```
+
+* Deploy to GCP CLoud Run
+    * [https://cloud.google.com/community/tutorials/cicd-cloud-run-github-actions](https://cloud.google.com/community/tutorials/cicd-cloud-run-github-actions)

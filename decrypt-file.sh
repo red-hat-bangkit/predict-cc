@@ -1,5 +1,4 @@
 #!/bin/sh
-LARGE_SECRET_PASSPHRASE=<ASK THE AUTHOR FOR PASSPHRASE>
 
 # decrypt firebase secret
 LARGE_SECRET_PASSPHRASE=bangkit.red-hat.predict-cc
