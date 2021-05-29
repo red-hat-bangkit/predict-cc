@@ -91,7 +91,6 @@ async def get_banjir_predictions(
 async def predictions_locations():
     locations = []
     for location in get_supported_locations():
-        print(location)
         locations.append(Location(name=location, lat_long=get_lat_long(location)))
     return locations
 
