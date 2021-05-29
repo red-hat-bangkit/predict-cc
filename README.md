@@ -10,7 +10,7 @@ A backend repository for PREDICT application
 
 ## Frontend Usage
 * Go to [https://bangkit-predict.herokuapp.com/docs](https://bangkit-predict.herokuapp.com/docs) (test)
-* Go to [https://predict-bangkit-bnqw4sb42q-uc.a.run.app/docs](https://predict-bangkit-bnqw4sb42q-uc.a.run.app/docs) (production)
+* Go to [https://predict-bencana.ardenov.com/docs](https://predict-bencana.ardenov.com/docs) (production)
 
 ## Backend Usage
 * Install requirements
