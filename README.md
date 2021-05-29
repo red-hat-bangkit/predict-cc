@@ -1,6 +1,10 @@
 # PREDICT BACKEND
 A backend repository for PREDICT application
 
+[![Cloud Run Deploy](https://github.com/red-hat-bangkit/predict-cc/actions/workflows/cr-deploy.yml/badge.svg)](https://github.com/red-hat-bangkit/predict-cc/actions/workflows/cr-deploy.yml)
+
+<p align="center"><img src="docs/rest-usage.png" width="700px"></p>
+
 ## Contribute to this repository
 * See [contributing.md](contributing.md)
 
@@ -15,6 +19,8 @@ A backend repository for PREDICT application
     ```
 * Decrypt files
     ```
+    sudo apt-get install -yqq p7zip-full
+    LARGE_SECRET_PASSPHRASE=<YOUR_PASSPHRASE>
     ./decrypt-file.sh
     ```
 * Run application
