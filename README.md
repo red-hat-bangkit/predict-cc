@@ -5,7 +5,8 @@ A backend repository for PREDICT application
 * See [contributing.md](contributing.md)
 
 ## Frontend Usage
-* Go to [https://bangkit-predict.herokuapp.com/docs](https://bangkit-predict.herokuapp.com/docs)
+* Go to [https://bangkit-predict.herokuapp.com/docs](https://bangkit-predict.herokuapp.com/docs) (test)
+* Go to [https://predict-bangkit-bnqw4sb42q-uc.a.run.app/docs](https://predict-bangkit-bnqw4sb42q-uc.a.run.app/docs) (production)
 
 ## Backend Usage
 * Install requirements
@@ -64,6 +65,8 @@ A backend repository for PREDICT application
     ```
 * Decrypt secrets
     ```
+    sudo apt-get install -yqq p7zip-full
+    LARGE_SECRET_PASSPHRASE=<YOUR_PASSPHRASE>
     ./decrypt-file.sh
     ```
 * Deploy to heroku
