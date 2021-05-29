@@ -14,7 +14,6 @@ parser_test = sub_parser.add_parser("test", help="test this project")
 parser_test.set_defaults(func=lambda x: subprocess.run(["python", "-m", "unittest", "discover"]))
 
 
-
 # google parser example
 # compute = parser_utils.add_subparsers(title="Compute Engine")
 # compute_parser = sub_parser.add_parser("compute", help="compute engine utility")

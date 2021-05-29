@@ -5,14 +5,16 @@ A backend repository for PREDICT application
 * See [contributing.md](contributing.md)
 
 ## Frontend Usage
-* Go to [https://bangkit-predict.herokuapp.com/gql](https://bangkit-predict.herokuapp.com/gql)
-* Try query bellow
-<p align="center"><img src="docs/usage.png" width="700px"></p>
+* Go to [https://bangkit-predict.herokuapp.com/docs](https://bangkit-predict.herokuapp.com/docs)
 
 ## Backend Usage
 * Install requirements
     ```
     pip install -r requirements.txt
+    ```
+* Decrypt files
+    ```
+    ./decrypt-file.sh
     ```
 * Run application
     ```
@@ -62,16 +64,9 @@ A backend repository for PREDICT application
     ```
 * Decrypt secrets
     ```
-    LARGE_SECRET_PASSPHRASE=*****
-
-    gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
-    --output $HOME/secrets/my_secret.json my_secret.json.gpg
+    ./decrypt-file.sh
     ```
 * Deploy to heroku
     ```
-    git add . && git commit -m ":rocket: Deploy to heroku"
-    git push -f heroku master
+    ./deploy.sh
     ```
-
-## Encryption
-[secret](https://docs.github.com/en/actions/reference/encrypted-secrets)

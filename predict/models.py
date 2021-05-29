@@ -16,7 +16,9 @@ class Prediction(BaseModel):
     bencana: str
     location: Location
     confidence: Optional[float] = None
+    rmse: Optional[float] = None
     time: Optional[datetime] = None
+    is_bencana: Optional[bool] = None
     reason: str
 
 class BencanaInCity(BaseModel):
