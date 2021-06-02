@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Query
 from typing import List, Optional
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from ml.models_loader import predict_banjir, get_supported_locations
 import pandas as pd
 
@@ -40,12 +40,13 @@ async def list_predictions(
     predictions = []
     for idx, output in ml_outputs.iterrows():
         location = Location(name=location_name, lat_long=get_lat_long(location_name))
+        GMT7 = timezone(timedelta(hours=7))
         prediction = Prediction(
                         bencana=bencana_name, 
-                        confidence = None, # not supported yet -> fallback to rmse
+                        confidence = output["confidence"], # not supported yet -> fallback to rmse
                         rmse = output["rmse"],
                         location= location, 
-                        time= output["date"],
+                        time= output["date"].replace(tzinfo=GMT7),
                         is_bencana = output["prediction"],
                         reason= "Curah hujan (%s mm)"%output["forecasted_rainfall"])
         predictions.append(prediction)
@@ -74,7 +75,7 @@ async def get_banjir_predictions(
         location = Location(name=location_name, lat_long=get_lat_long(location_name))
         prediction = Prediction(
                         bencana=bencana_name, 
-                        confidence = None, # not supported yet -> fallback to rmse
+                        confidence = output["confidence"], # not supported yet -> fallback to rmse
                         rmse = output["rmse"],
                         location= location, 
                         time= output["date"],
