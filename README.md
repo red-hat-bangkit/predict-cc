@@ -9,8 +9,7 @@ A backend repository for PREDICT application
 * See [contributing.md](contributing.md)
 
 ## Frontend Usage
-* Go to [https://bangkit-predict.herokuapp.com/docs](https://bangkit-predict.herokuapp.com/docs) (test)
-* Go to [https://predict-bencana.ardenov.com/docs](https://predict-bencana.ardenov.com/docs) (production)
+* Go to [https://predict-bencana.ardenov.com/docs](https://predict-bencana.ardenov.com/docs)
 
 ## Backend Usage
 * Install requirements
@@ -27,19 +26,19 @@ A backend repository for PREDICT application
     ```
     python main.py
     ```
-    _go to http://localhost:8000/gql_
+    _go to http://localhost:8000/docs_
 
 * Test application
     ```
     python main.py test
     ```
 
-* Generate GQL Schema
+* Generate GQL Schema (deprecated)
     ```
     python main.py generate-schema
     ```
 
-* Alembic migration (in future)
+* Alembic migration (deprecated)
     ```
     alembic revision --autogenerate -m "Init Migration"
 
